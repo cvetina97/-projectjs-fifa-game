@@ -3,12 +3,12 @@ let container = document.getElementById("participantsData");
 let button = document.getElementById("render");
 
 let group_resultsData;
-let teamsData;
+let teamsData;  
+historyCollection.push("Rendered participants page!"); 
 
 button.addEventListener("click",function(){
     Ajax.get("http://worldcup.sfg.io/teams/", (data) => {
     teamsData = data; 
-    historyCollection.push("Rendered participants info!"); 
     renderHtml(); 
     
 });
@@ -17,7 +17,6 @@ button.addEventListener("click",function(){
 
  Ajax.get("http://worldcup.sfg.io/teams/group_results", (data) => {
     group_resultsData = data; 
-    historyCollection.push("Rendered group results info!");
     renderSearch();
     
  });

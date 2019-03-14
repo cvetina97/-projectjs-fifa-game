@@ -1,15 +1,15 @@
 let container = document.getElementById("statistics");
 
 let matches;
+historyCollection.push("Rendered matches page!"); 
 
     Ajax.get("http://worldcup.sfg.io/matches", (data) => {
        matches = data; 
-       historyCollection.push("Rendered matches info!");
        renderHomeTeams();
        console.log(historyCollection.length);
     });
 
-
+// the matches renders a little bit slow , so you have to wait 
 
 function renderHomeTeams(){
     for (let i = 0; i < matches.length; i++) {

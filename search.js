@@ -1,6 +1,7 @@
 var button = document.getElementById("search");
 var table = document.getElementById("table");
 
+historyCollection.push("Rendered search page!"); 
 let groups;
 
 Ajax.get("http://worldcup.sfg.io/teams/group_results", (data) => {
@@ -51,9 +52,22 @@ function search(){
     console.log(countryValue);
     console.log(winsValue);
 
+    var group_needle = groupValue;
+    var country_needle = countryValue;
+    var wins_needle = winsValue;
     for (let i = 0; i < groups.length; i++) {
         for (let j = 0; j < groups[i].ordered_teams.length; j++) {
-            
+            if(groups[i].letter == group_needle && groups[i].ordered_teams[j].country == country_needle && groups[i].ordered_teams[j].wins == wins_needle ){
+                console.log(groups[i].letter + " " + groups[i].ordered_teams[j].country + " " + groups[i].ordered_teams[j].wins);
+
+            }
+            else if(groups[i].letter == group_needle && groups[i].ordered_teams[j].group_letter == group_needle){
+                console.log(groups[i].ordered_teams[j].country);
+            }
+            else if(groups[i].letter == group_needle && groups[i].ordered_teams[j].group_letter == group_needle && groups[i].ordered_teams[j].wins == wins_needle){
+                    console.log(groups[i].ordered_teams[j].country + " " + groups[i].ordered_teams[j].wins);
+
+            }
             
     }
 }

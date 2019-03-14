@@ -2,7 +2,7 @@ let container = document.getElementById("table");
 let button = document.getElementById("render");
 
 let groups;
-
+historyCollection.push(window.location.href + "visited"); 
     renderHistory();
 
 function renderHistory()
@@ -19,5 +19,7 @@ function renderHistory()
         domTdHistoryInfoDateTime.append(date.toDateString());
         domTr.appendChild(domTdHistoryInfoDateTime);
     }
+
+    console.log(window.history);
     
 }

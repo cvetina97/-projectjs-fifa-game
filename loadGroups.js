@@ -1,10 +1,9 @@
 let container = document.getElementById("groups");
 
 let groups;
-
+historyCollection.push("Rendered groups page!"); 
     Ajax.get("http://worldcup.sfg.io/teams/group_results", (data) => {
        groups = data; 
-       historyCollection.push("Rendered groups info!");
        renderGroups();
        console.log(historyCollection.length);
     });
